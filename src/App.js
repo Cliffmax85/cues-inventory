@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/">
               {
                 user
-                  ? <AuthPage />
+                  ? <ListPage />
                   : <AuthPage setUser={setUser} />
               }
 
