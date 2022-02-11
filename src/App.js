@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import AuthPage from './AuthPage';
+import ListPage from './ListPage';
 import { logout } from './services/fetch-utils';
 import {
   BrowserRouter as Router, Route, Switch

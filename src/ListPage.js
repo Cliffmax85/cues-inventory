@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCues } from './services/fetch-utils';
+import Cue from './Cue';
 
 export default function ListPage() {
   const [cues, setCues] = useState([]);
