@@ -7,13 +7,16 @@ import {
   BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import DetailPage from './DetailPage';
+import { Redirect } from 'react-router-dom';
+import CreateCuePage from './CreateCuePage';
 
 
-function App() {
+export default function App() {
   const [user, setUser] = useState(localStorage.getItem('supabase.auth.token'));
 
   async function handleLogout() {
-    logout();
+    await logout();
     setUser('');
   }
 
@@ -21,7 +24,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header>
+        <header className='header'>
           {
             user && 
             <>
@@ -39,7 +42,27 @@ function App() {
                   ? <ListPage />
                   : <AuthPage setUser={setUser} />
               }
-
+            </Route>
+            <Route exact path="/cues">
+              {
+                user 
+                  ? <ListPage />
+                  : <Redirect to="/" />
+              }
+            </Route>
+            <Route exact path="/cues/:id">
+              {
+                user 
+                  ? <DetailPage />
+                  : <Redirect to="/" />
+              }
+            </Route>
+            <Route exact path="/create">
+              {
+                user 
+                  ? <CreateCuePage />
+                  : <Redirect to="/" />
+              }
             </Route>
           </Switch>
         </main>
@@ -48,4 +71,4 @@ function App() {
   );
 }
 
-export default App;
+

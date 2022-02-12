@@ -18,7 +18,7 @@ export async function signIn(email, password) {
 }
 
 export async function logout() {
-  await client.auth.signout();
+  await client.auth.signOut();
   return window.location.href = '../';
 }
 

@@ -24,8 +24,9 @@ export default function CreateCuePage() {
 
 
   return (
-    <div>\\\\\\CREATE_A_CUE////////
+    <div className='create-cue'>\\\\\\CREATE_A_CUE////////
       <form onSubmit={handleSubmit}>
+        <h3>Submit your Cue</h3>
         <label>
             Cue type
           <input required value={type} onChange={e => setType(e.target.value)} name='type' />
@@ -43,7 +44,11 @@ export default function CreateCuePage() {
             Year Made
           <input required value={year} onChange={e => setYear(e.target.value)} name='year' />
         </label>
-        <input required value={cost} onChange={e => setCost(e.target.value)} name='cost' />
+        <label>
+            Worth
+          <input required value={cost} onChange={e => setCost(e.target.value)} name='cost' />
+        </label>
+        <button>Create Cue</button>
       </form>
     </div>
   );
